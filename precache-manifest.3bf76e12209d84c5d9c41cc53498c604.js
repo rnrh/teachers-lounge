@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/teachers-lounge/static/media/tl-logo.43e5b536.png"
   },
   {
-    "revision": "ae2bf1809a305f166a68c24c2759c07e",
+    "revision": "22e8cac01999a892a8f7f47498066188",
     "url": "/teachers-lounge/index.html"
   }
 ];
