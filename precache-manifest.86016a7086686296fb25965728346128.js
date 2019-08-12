@@ -1,23 +1,19 @@
 self.__precacheManifest = [
   {
-    "revision": "99b847ed2b1a7a9ff874",
-    "url": "/teachers-lounge/static/css/main.7655361e.chunk.css"
+    "revision": "03454d3410e9324cc9c6",
+    "url": "/teachers-lounge/static/css/main.95084d10.chunk.css"
   },
   {
-    "revision": "99b847ed2b1a7a9ff874",
-    "url": "/teachers-lounge/static/js/main.99b847ed.chunk.js"
+    "revision": "03454d3410e9324cc9c6",
+    "url": "/teachers-lounge/static/js/main.03454d34.chunk.js"
   },
   {
-    "revision": "b3051add5912e07ee7a7",
-    "url": "/teachers-lounge/static/js/1.b3051add.chunk.js"
+    "revision": "1a596ca731a12bb19d37",
+    "url": "/teachers-lounge/static/js/1.1a596ca7.chunk.js"
   },
   {
     "revision": "0a8565018e4275bfefcc",
     "url": "/teachers-lounge/static/js/runtime~main.0a856501.js"
-  },
-  {
-    "revision": "f6090cf46450653555087dd77ef7709f",
-    "url": "/teachers-lounge/static/media/sam-weatherman-fuck-pad.f6090cf4.m4a"
   },
   {
     "revision": "24c9d2665ebb8bbf2a4bfa689e73a8bf",
@@ -26,6 +22,14 @@ self.__precacheManifest = [
   {
     "revision": "68ddf2c7480e1f24fd54e9839a5251e0",
     "url": "/teachers-lounge/static/media/todd-michael-jackson.68ddf2c7.m4a"
+  },
+  {
+    "revision": "f6090cf46450653555087dd77ef7709f",
+    "url": "/teachers-lounge/static/media/sam-weatherman-fuck-pad.f6090cf4.m4a"
+  },
+  {
+    "revision": "703debc67324589306d45b1b0fc52440",
+    "url": "/teachers-lounge/static/media/howard-semetic.703debc6.m4a"
   },
   {
     "revision": "94aed85e0d638512a3ad70b26b99edee",
@@ -48,7 +52,7 @@ self.__precacheManifest = [
     "url": "/teachers-lounge/static/media/tl-logo.43e5b536.png"
   },
   {
-    "revision": "22e8cac01999a892a8f7f47498066188",
+    "revision": "e9c5fc870648c2fb6622a84c0ba326e4",
     "url": "/teachers-lounge/index.html"
   }
 ];
