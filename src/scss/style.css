@@ -1,0 +1,76 @@
+body, html {
+  font-family: Helvetica;
+  font-weight: bold;
+  margin: 0; }
+
+a {
+  transition: .2s all;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+.soundboard-wrapper {
+  width: 1440px;
+  height: 100vh;
+  margin: 0 auto; }
+  @media (max-width: 1440px) {
+    .soundboard-wrapper {
+      width: 100vw; } }
+  .soundboard-wrapper .soundboard {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    overflow: hidden; }
+    .soundboard-wrapper .soundboard__logo {
+      width: 1000px;
+      height: 100%;
+      background-image: url("../img/tl-logo.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center; }
+      @media (max-width: 1440px) {
+        .soundboard-wrapper .soundboard__logo {
+          display: none; } }
+    .soundboard-wrapper .soundboard .soundboard-teachers {
+      width: 440px;
+      height: 100%; }
+      @media (max-width: 575.98px) {
+        .soundboard-wrapper .soundboard .soundboard-teachers {
+          width: 95vw;
+          margin: 0 auto; } }
+      .soundboard-wrapper .soundboard .soundboard-teachers * {
+        display: inline-block;
+        height: calc(50% - 5px);
+        width: calc(50% - 10px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin-left: 10px; }
+        @media (max-width: 575.98px) {
+          .soundboard-wrapper .soundboard .soundboard-teachers * {
+            margin-left: 0px; }
+            .soundboard-wrapper .soundboard .soundboard-teachers *:nth-child(even) {
+              margin-left: 20px; } }
+        .soundboard-wrapper .soundboard .soundboard-teachers *:nth-child(-n+2) {
+          margin-bottom: 5px; }
+        .soundboard-wrapper .soundboard .soundboard-teachers *:nth-child(n+3) {
+          margin-top: 5px; }
+      .soundboard-wrapper .soundboard .soundboard-teachers__bill-cravey {
+        background-image: url("../img/bill-cravey.png"); }
+      .soundboard-wrapper .soundboard .soundboard-teachers__howard-levis {
+        background-image: url("../img/howard-levis.png"); }
+      .soundboard-wrapper .soundboard .soundboard-teachers__todd-padre {
+        background-image: url("../img/todd-padre.png"); }
+      .soundboard-wrapper .soundboard .soundboard-teachers__sam-weatherman {
+        background-image: url("../img/sam-weatherman.png"); }
+
+/*# sourceMappingURL=style.css.map */

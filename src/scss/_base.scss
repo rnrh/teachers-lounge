@@ -1,0 +1,14 @@
+body, html {
+  font-family: Helvetica;
+  font-weight: bold;
+  margin: 0;
+}
+
+a {
+  transition: .2s all;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

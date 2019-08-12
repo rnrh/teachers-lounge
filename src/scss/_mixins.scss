@@ -1,0 +1,202 @@
+@mixin responsive-padding-all($xl_value, $lg_value, $md_value, $sm_value,) {
+  @media (min-width: $XL) {
+    padding: $xl_value;
+  }
+
+  @media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+    padding: $lg_value;
+  }
+
+  @media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+    padding: $md_value;
+  }
+
+  @media (max-width: $LESS_THAN_MD) {
+    padding: $sm_value;
+  }
+}
+
+@mixin responsive-padding($direction, $xl_value, $lg_value, $md_value, $sm_value,) {
+  @media (min-width: $XL) {
+    @if $direction == ‘top’ {
+      padding-top: $xl_value;
+    }
+
+    @if $direction == ‘right’ {
+      padding-right: $xl_value;
+    }
+
+    @if $direction == ‘bottom’ {
+      padding-bottom: $xl_value;
+    }
+
+    @if $direction == ‘left’ {
+      padding-left: $xl_value;
+    }
+  }
+
+  @media (min-width: $LG) and (max-width: $LESS_THAN_XL) {
+    @if $direction == ‘top’ {
+      padding-top: $lg_value;
+    }
+
+    @if $direction == ‘right’ {
+      padding-right: $lg_value;
+    }
+
+    @if $direction == ‘bottom’ {
+      padding-bottom: $lg_value;
+    }
+
+    @if $direction == ‘left’ {
+      padding-left: $lg_value;
+    }
+  }
+
+  @media (min-width: $MD) and (max-width: $LESS_THAN_LG) {
+    @if $direction == ‘top’ {
+      padding-top: $md_value;
+    }
+
+    @if $direction == ‘right’ {
+      padding-right: $md_value;
+    }
+
+    @if $direction == ‘bottom’ {
+      padding-bottom: $md_value;
+    }
+
+    @if $direction == ‘left’ {
+      padding-left: $md_value;
+    }
+  }
+
+  @media (max-width: $LESS_THAN_MD) {
+    @if $direction == ‘top’ {
+      padding-top: $sm_value;
+    }
+
+    @if $direction == ‘right’ {
+      padding-right: $sm_value;
+    }
+
+    @if $direction == ‘bottom’ {
+      padding-bottom: $sm_value;
+    }
+
+    @if $direction == ‘left’ {
+      padding-left: $sm_value;
+    }
+  }
+}
+
+@mixin transform($property) {
+  -moz-transform: $property;
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin animation($property) {
+  -moz-animation: $property;
+  -webkit-animation: $property;
+  -ms-animation: $property;
+  animation: $property;
+}
+
+@mixin push-to-viewport-edge($direction, $width) {
+  @if $direction == ‘left’ {
+    margin-left: calc(50% - 50vw);
+  }
+
+  @if $direction == ‘right’ {
+    margin-right: calc(50% - 50vw);
+  }
+  width: $width;
+}
+
+@mixin absolute-center($direction) {
+  @if $direction == ‘vertical’ {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  @if $direction == ‘horizontal’ {
+    position: absolute;
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+
+  @if $direction == 'both' {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+}
+
+@mixin margin-padding($direction, $margin_value: null, $padding_value: null) {
+  @if $direction == ‘top’ {
+    margin-top: $margin_value;
+    padding-top: $padding_value;
+  }
+
+  @if $direction == ‘right’ {
+    margin-right: $margin_value;
+    padding-right: $padding_value;
+  }
+
+  @if $direction == ‘bottom’ {
+    margin-bottom: $margin_value;
+    padding-bottom: $padding_value;
+  }
+
+  @if $direction == ‘left’ {
+    margin-left: $margin_value;
+    padding-left: $padding_value;
+  }
+}
+
+@mixin flexbox($flex_direction, $justify_content, $align_items) {
+  display: flex;
+  flex-direction: $flex_direction;
+  justify-content: $justify_content;
+  align-items: $align_items;
+}
+
+@mixin hide-lg-down {
+  @media (max-width: $LESS_THAN_LG) {
+    display: none;
+  }
+}
+
+@mixin show-lg-down {
+  @media (min-width: $XL) {
+    display: none;
+  }
+}
+
+@mixin hide-md-down {
+  @media (max-width: $LESS_THAN_MD) {
+    display: none;
+  }
+}
+
+@mixin show-md-down {
+  @media (min-width: $LG) {
+    display: none;
+  }
+}
+
+@mixin hide-sm-down {
+  @media (max-width: $LESS_THAN_SM) {
+    display: none;
+  }
+}
+
+@mixin show-sm-down {
+  @media (min-width: $MD) {
+    display: none;
+  }
+}
