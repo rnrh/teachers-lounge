@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "03454d3410e9324cc9c6",
-    "url": "/teachers-lounge/static/css/main.95084d10.chunk.css"
+    "revision": "dc9b7f5c2e154f8efc5c",
+    "url": "/teachers-lounge/static/css/main.91bac6fe.chunk.css"
   },
   {
-    "revision": "03454d3410e9324cc9c6",
-    "url": "/teachers-lounge/static/js/main.03454d34.chunk.js"
+    "revision": "dc9b7f5c2e154f8efc5c",
+    "url": "/teachers-lounge/static/js/main.dc9b7f5c.chunk.js"
   },
   {
     "revision": "1a596ca731a12bb19d37",
@@ -32,27 +32,27 @@ self.__precacheManifest = [
     "url": "/teachers-lounge/static/media/howard-semetic.703debc6.m4a"
   },
   {
-    "revision": "94aed85e0d638512a3ad70b26b99edee",
-    "url": "/teachers-lounge/static/media/sam-weatherman.94aed85e.png"
+    "revision": "14c1bab9f186097598a9053479ebb579",
+    "url": "/teachers-lounge/static/media/sam-weatherman.14c1bab9.png"
   },
   {
-    "revision": "3be6f2a329e252f0bb310aacd7df665f",
-    "url": "/teachers-lounge/static/media/todd-padre.3be6f2a3.png"
+    "revision": "4c4cc3b060661802c8c36ed6ecc65b35",
+    "url": "/teachers-lounge/static/media/todd-padre.4c4cc3b0.png"
   },
   {
-    "revision": "f8f6a5c5e56a3b5a408fa2ce369fe461",
-    "url": "/teachers-lounge/static/media/bill-cravey.f8f6a5c5.png"
+    "revision": "3672caa586728f2687de2cdfa3d5b0b8",
+    "url": "/teachers-lounge/static/media/bill-cravey.3672caa5.png"
   },
   {
-    "revision": "dc52d7b5c9397c14a6d4816437300da0",
-    "url": "/teachers-lounge/static/media/howard-levis.dc52d7b5.png"
+    "revision": "178fe1b77d09797dd3223fa35ff0120b",
+    "url": "/teachers-lounge/static/media/howard-levis.178fe1b7.png"
   },
   {
-    "revision": "43e5b536324f3ff9809c9f076410e1ed",
-    "url": "/teachers-lounge/static/media/tl-logo.43e5b536.png"
+    "revision": "b9b94855ef42911ef499e360c3db83d3",
+    "url": "/teachers-lounge/static/media/tl-logo.b9b94855.png"
   },
   {
-    "revision": "e9c5fc870648c2fb6622a84c0ba326e4",
+    "revision": "55d5035cdf6a29f2f6970d12cc648441",
     "url": "/teachers-lounge/index.html"
   }
 ];

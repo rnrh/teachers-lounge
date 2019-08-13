@@ -1,7 +1,7 @@
 {
-  "main.css": "/teachers-lounge/static/css/main.95084d10.chunk.css",
-  "main.js": "/teachers-lounge/static/js/main.03454d34.chunk.js",
-  "main.js.map": "/teachers-lounge/static/js/main.03454d34.chunk.js.map",
+  "main.css": "/teachers-lounge/static/css/main.91bac6fe.chunk.css",
+  "main.js": "/teachers-lounge/static/js/main.dc9b7f5c.chunk.js",
+  "main.js.map": "/teachers-lounge/static/js/main.dc9b7f5c.chunk.js.map",
   "static/js/1.1a596ca7.chunk.js": "/teachers-lounge/static/js/1.1a596ca7.chunk.js",
   "static/js/1.1a596ca7.chunk.js.map": "/teachers-lounge/static/js/1.1a596ca7.chunk.js.map",
   "runtime~main.js": "/teachers-lounge/static/js/runtime~main.0a856501.js",
@@ -10,9 +10,9 @@
   "static/media/todd-michael-jackson.m4a": "/teachers-lounge/static/media/todd-michael-jackson.68ddf2c7.m4a",
   "static/media/sam-weatherman-fuck-pad.m4a": "/teachers-lounge/static/media/sam-weatherman-fuck-pad.f6090cf4.m4a",
   "static/media/howard-semetic.m4a": "/teachers-lounge/static/media/howard-semetic.703debc6.m4a",
-  "static/media/style.css": "/teachers-lounge/static/media/tl-logo.43e5b536.png",
-  "static/css/main.95084d10.chunk.css.map": "/teachers-lounge/static/css/main.95084d10.chunk.css.map",
+  "static/media/style.css": "/teachers-lounge/static/media/tl-logo.b9b94855.png",
+  "static/css/main.91bac6fe.chunk.css.map": "/teachers-lounge/static/css/main.91bac6fe.chunk.css.map",
   "index.html": "/teachers-lounge/index.html",
-  "precache-manifest.86016a7086686296fb25965728346128.js": "/teachers-lounge/precache-manifest.86016a7086686296fb25965728346128.js",
+  "precache-manifest.09c34c62bda16a82c60e2e805aa3054d.js": "/teachers-lounge/precache-manifest.09c34c62bda16a82c60e2e805aa3054d.js",
   "service-worker.js": "/teachers-lounge/service-worker.js"
 }
