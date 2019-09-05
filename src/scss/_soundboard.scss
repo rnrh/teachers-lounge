@@ -9,10 +9,11 @@
 
   .soundboard {
     @include absolute-center(both);
-    @include flexbox(row, center, center);
+    //@include flexbox(row, center, center);
     height: 600px;
     overflow: hidden;
-
+    display: none;
+    
     &__logo {
       width: 1000px;
       height: 100%;
