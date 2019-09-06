@@ -1,4 +1,4 @@
-@mixin responsive-padding-all($xl_value, $lg_value, $md_value, $sm_value,) {
+@mixin responsive-padding-all($xl_value, $lg_value, $md_value, $sm_value) {
   @media (min-width: $XL) {
     padding: $xl_value;
   }
@@ -16,7 +16,7 @@
   }
 }
 
-@mixin responsive-padding($direction, $xl_value, $lg_value, $md_value, $sm_value,) {
+@mixin responsive-padding($direction, $xl_value, $lg_value, $md_value, $sm_value) {
   @media (min-width: $XL) {
     @if $direction == ‘top’ {
       padding-top: $xl_value;

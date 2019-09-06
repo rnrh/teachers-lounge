@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import Constants from '../js/Constants';
-import AudioClipBar from '../js/Search';
+import {AudioClipBar, SearchBar, AudioClipBarTag} from '../js/Search';
 
 class Soundboard extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            billCraveyAudio: false,
             billCraveyIndex: 0,
             howardLevisIndex: 0,
             toddPadreIndex: 0,
             samWeathermanIndex: 0,
             searchableClipAudio: null,
             audioClipSearch: '',
+            tagText: '',
         };
     }
 
@@ -24,39 +24,67 @@ class Soundboard extends Component {
         return audio.play();
     };
 
-    getAudioUrl = (clipUrl) => {
+    getSearchedAudioUrl = (clipUrl) => {
         this.setState({
             searchableClipAudio: clipUrl
         }, () => {
             var audio = new Audio(this.state.searchableClipAudio);
+            audio.onended = () => {
+                this.setState({
+                    searchableClipAudio: null,
+                })
+            };
             return audio.play();
         })
     };
 
     updateAudioClipSearch = (event) => {
         this.setState({
-            audioClipSearch: event.target.value.substr(0, 20),
+            audioClipSearch: event.target.value.substr(0, 30),
         })
-    }
+    };
+
+    handleTagClick = (tagText) => {
+        this.setState({
+            tagText: tagText,
+            audioClipSearch: tagText,
+        })
+    };
+
+    clearSearch = () => {
+        this.setState({
+            audioClipSearch: '',
+        })
+    };
 
     render() {
         let filteredAudioClips = Constants.searchableClips.filter(
             (audioClip) => {
                 return (
-                    audioClip.clipLabel.toLocaleLowerCase().indexOf(this.state.audioClipSearch.toLocaleLowerCase()) !== -1
+                    audioClip.clipLabel.toLocaleLowerCase().includes(this.state.audioClipSearch.toLocaleLowerCase()) ||
+                    audioClip.tags.some(item => item.toLocaleLowerCase().includes(this.state.audioClipSearch.toLocaleLowerCase()))
                 );
             }
         );
+
         var renderAudioClipBars = filteredAudioClips.map((audioClip, i) => {
             var renderAudioClipTags = audioClip.tags.map((tags, j) => {
                 return (
-                    <p key={j}>{tags}</p>
+                    <AudioClipBarTag
+                        handleTagClick={this.handleTagClick}
+                        tagTitle={tags}
+                        tagText={tags}
+                        key={j}
+                    />
                 )
             });
             return (
                 <AudioClipBar
-                    onPlayIconClick={() => this.getAudioUrl(audioClip.clipUrl)}
+                    // onPlayIconClick={() => this.getSearchedAudioUrl(audioClip.clipUrl)}
+                    audioClipSource={audioClip.clipUrl}
+                    onTagClick={() => this.onTagClick}
                     clipTitle={audioClip.clipLabel}
+                    audioIsPlaying={audioClip.clipUrl == this.state.searchableClipAudio ? true : false}
                     key={i}
                 >
                     {renderAudioClipTags}
@@ -65,14 +93,12 @@ class Soundboard extends Component {
         });
         return (
             <div className="soundboard-wrapper">
-                <div className="search">
-                    <input
-                        placeholder="search here king"
-                        type="text"
-                        value={this.state.audioClipSearch}
-                        onChange={this.updateAudioClipSearch.bind(this)}
-                    />
-                </div>
+                <SearchBar
+                    audioClipSearchValue={this.state.audioClipSearch}
+                    onSearchInputChange={this.updateAudioClipSearch.bind(this)}
+                    hasSearchValue={this.state.audioClipSearch}
+                    clearSearch={this.clearSearch}
+                />
                 {renderAudioClipBars}
                 <div className="soundboard">
                     <div className="soundboard__logo"/>

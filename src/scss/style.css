@@ -78,22 +78,56 @@ a {
   height: 75px;
   padding: 0 25px;
   border-bottom: 1px solid #eeeeee; }
+  .audio-clip-bar audio {
+    filter: sepia(100%) saturate(0) contrast(100%) invert(0%) brightness(1);
+    -webkit-filter: sepia(100%) saturate(0) contrast(100%) invert(0%) brightness(1); }
   .audio-clip-bar__play-icon {
-    flex: 0; }
+    flex: 0 35px; }
   .audio-clip-bar__clip-title {
     flex: 1;
     padding-left: 50px; }
   .audio-clip-bar__clip-tags {
-    flex: 1;
+    flex: 2;
     text-align: right; }
     .audio-clip-bar__clip-tags p {
+      cursor: pointer;
       font-size: 12px;
       display: inline;
       margin-left: 10px;
       background-color: #eeeeee;
       padding: 5px 10px;
       border-radius: 10px;
-      color: #a4a4a4; }
+      color: #a4a4a4;
+      white-space: nowrap; }
+      .audio-clip-bar__clip-tags p:hover {
+        color: #000000; }
+
+.search {
+  text-align: center;
+  border-bottom: 2px solid #eeeeee;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto; }
+  .search i {
+    color: #a4a4a4; }
+  .search .clear-search i {
+    color: #a4a4a4;
+    cursor: pointer; }
+  .search .search-input {
+    padding: 0 10px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px; }
 
 @media screen and (min-width: 50em) {
   :root {

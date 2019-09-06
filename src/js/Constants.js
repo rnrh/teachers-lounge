@@ -43,7 +43,7 @@ const Constants = {
             tags: [
                 'Todd Padre',
                 'Burger King',
-                'Crafty Freakout'
+                'Crafty Freakout',
             ]
         }, {
             clipUrl: samWeathermanFuckPad,
