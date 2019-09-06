@@ -38,12 +38,25 @@ const Constants = {
                 'Ridiculous Voice',
             ]
         }, {
-            clipUrl: billCraveyJealous,
+            clipUrl: toddMichaelJackson,
             clipLabel: 'I\'m a Michael Jackson',
             tags: [
                 'Todd Padre',
                 'Burger King',
                 'Crafty Freakout'
+            ]
+        }, {
+            clipUrl: samWeathermanFuckPad,
+            clipLabel: 'I\'ve Always Wanted a Fuck Pad',
+            tags: [
+                'Sam Weatherman',
+            ]
+        }, {
+            clipUrl: howardLevisSemetic,
+            clipLabel: 'I\'m the Most Semitic',
+            tags: [
+                'Howard Levi\'s',
+                'Jews',
             ]
         },
     ]

@@ -12,8 +12,9 @@ class Soundboard extends Component {
             howardLevisIndex: 0,
             toddPadreIndex: 0,
             samWeathermanIndex: 0,
-            searchableClipAudio: null
-        }
+            searchableClipAudio: null,
+            audioClipSearch: '',
+        };
     }
 
     handleTeacherAudio = (teacherIndex, teacherArray) => {
@@ -32,21 +33,27 @@ class Soundboard extends Component {
         })
     };
 
-    render() {
-        var renderAudioClipBars = [];
-        var audioClipList = Constants.searchableClips;
-        for (var i = 0; i < audioClipList.length; i++) {
-            var audioClip = audioClipList[i];
+    updateAudioClipSearch = (event) => {
+        this.setState({
+            audioClipSearch: event.target.value.substr(0, 20),
+        })
+    }
 
-            var renderAudioClipTags = [];
-            var audioClipTagsList = audioClipList[i].tags;
-            for (var j = 0; j < audioClipTagsList.length; j++) {
-                var tagsList = audioClipTagsList[j];
-                renderAudioClipTags.push(
-                    <p key={j}>{tagsList}</p>
-                )
+    render() {
+        let filteredAudioClips = Constants.searchableClips.filter(
+            (audioClip) => {
+                return (
+                    audioClip.clipLabel.toLocaleLowerCase().indexOf(this.state.audioClipSearch.toLocaleLowerCase()) !== -1
+                );
             }
-            renderAudioClipBars.push(
+        );
+        var renderAudioClipBars = filteredAudioClips.map((audioClip, i) => {
+            var renderAudioClipTags = audioClip.tags.map((tags, j) => {
+                return (
+                    <p key={j}>{tags}</p>
+                )
+            });
+            return (
                 <AudioClipBar
                     onPlayIconClick={() => this.getAudioUrl(audioClip.clipUrl)}
                     clipTitle={audioClip.clipLabel}
@@ -55,56 +62,61 @@ class Soundboard extends Component {
                     {renderAudioClipTags}
                 </AudioClipBar>
             )
-        }
+        });
         return (
             <div className="soundboard-wrapper">
                 <div className="search">
-                    search here king
+                    <input
+                        placeholder="search here king"
+                        type="text"
+                        value={this.state.audioClipSearch}
+                        onChange={this.updateAudioClipSearch.bind(this)}
+                    />
                 </div>
                 {renderAudioClipBars}
                 <div className="soundboard">
                     <div className="soundboard__logo"/>
                     {/*<div className="soundboard-teachers">*/}
-                        {/*<div*/}
-                            {/*onClick={() => this.handleTeacherAudio(*/}
-                                {/*this.state.billCraveyIndex,*/}
-                                {/*Constants.billCraveyClipArray,*/}
-                                {/*this.setState({*/}
-                                    {/*billCraveyIndex: this.state.billCraveyIndex + 1*/}
-                                {/*}),*/}
-                            {/*)}*/}
-                            {/*className="soundboard-teachers__bill-cravey"*/}
-                        {/*/>*/}
-                        {/*<div*/}
-                            {/*onClick={() => this.handleTeacherAudio(*/}
-                                {/*this.state.howardLevisIndex,*/}
-                                {/*Constants.howardLevisClipArray,*/}
-                                {/*this.setState({*/}
-                                    {/*howardLevisIndex: this.state.howardLevisIndex + 1*/}
-                                {/*}),*/}
-                            {/*)}*/}
-                            {/*className="soundboard-teachers__howard-levis"*/}
-                        {/*/>*/}
-                        {/*<div*/}
-                            {/*onClick={() => this.handleTeacherAudio(*/}
-                                {/*this.state.toddPadreIndex,*/}
-                                {/*Constants.toddPadreClipArray,*/}
-                                {/*this.setState({*/}
-                                    {/*toddPadreIndex: this.state.toddPadreIndex + 1*/}
-                                {/*}),*/}
-                            {/*)}*/}
-                            {/*className="soundboard-teachers__todd-padre"*/}
-                        {/*/>*/}
-                        {/*<div*/}
-                            {/*onClick={() => this.handleTeacherAudio(*/}
-                                {/*this.state.samWeathermanIndex,*/}
-                                {/*Constants.samWeathermanClipArray,*/}
-                                {/*this.setState({*/}
-                                    {/*samWeathermanIndex: this.state.samWeathermanIndex + 1*/}
-                                {/*}),*/}
-                            {/*)}*/}
-                            {/*className="soundboard-teachers__sam-weatherman"*/}
-                        {/*/>*/}
+                    {/*<div*/}
+                    {/*onClick={() => this.handleTeacherAudio(*/}
+                    {/*this.state.billCraveyIndex,*/}
+                    {/*Constants.billCraveyClipArray,*/}
+                    {/*this.setState({*/}
+                    {/*billCraveyIndex: this.state.billCraveyIndex + 1*/}
+                    {/*}),*/}
+                    {/*)}*/}
+                    {/*className="soundboard-teachers__bill-cravey"*/}
+                    {/*/>*/}
+                    {/*<div*/}
+                    {/*onClick={() => this.handleTeacherAudio(*/}
+                    {/*this.state.howardLevisIndex,*/}
+                    {/*Constants.howardLevisClipArray,*/}
+                    {/*this.setState({*/}
+                    {/*howardLevisIndex: this.state.howardLevisIndex + 1*/}
+                    {/*}),*/}
+                    {/*)}*/}
+                    {/*className="soundboard-teachers__howard-levis"*/}
+                    {/*/>*/}
+                    {/*<div*/}
+                    {/*onClick={() => this.handleTeacherAudio(*/}
+                    {/*this.state.toddPadreIndex,*/}
+                    {/*Constants.toddPadreClipArray,*/}
+                    {/*this.setState({*/}
+                    {/*toddPadreIndex: this.state.toddPadreIndex + 1*/}
+                    {/*}),*/}
+                    {/*)}*/}
+                    {/*className="soundboard-teachers__todd-padre"*/}
+                    {/*/>*/}
+                    {/*<div*/}
+                    {/*onClick={() => this.handleTeacherAudio(*/}
+                    {/*this.state.samWeathermanIndex,*/}
+                    {/*Constants.samWeathermanClipArray,*/}
+                    {/*this.setState({*/}
+                    {/*samWeathermanIndex: this.state.samWeathermanIndex + 1*/}
+                    {/*}),*/}
+                    {/*)}*/}
+                    {/*className="soundboard-teachers__sam-weatherman"*/}
+                    {/*/>*/}
                     {/*</div>*/}
                 </div>
             </div>
