@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/teachers-lounge/static/media/todd-padre.4c4cc3b0.png"
   },
   {
-    "revision": "178fe1b77d09797dd3223fa35ff0120b",
-    "url": "/teachers-lounge/static/media/howard-levis.178fe1b7.png"
-  },
-  {
     "revision": "3672caa586728f2687de2cdfa3d5b0b8",
     "url": "/teachers-lounge/static/media/bill-cravey.3672caa5.png"
+  },
+  {
+    "revision": "178fe1b77d09797dd3223fa35ff0120b",
+    "url": "/teachers-lounge/static/media/howard-levis.178fe1b7.png"
   },
   {
     "revision": "19b4207aa9a5e361d04bb65968b48a17",
