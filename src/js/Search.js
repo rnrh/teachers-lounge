@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
-import Constants from "./Constants";
 import PlayAudio from 'react-simple-audio-player';
+import chroma from "chroma-js"
 
 export class AudioClipBar extends Component {
     render() {
+        const colorScale = chroma.scale([
+            '#ffffff',
+            '#000000',
+        ]).mode('lch').colors(2);
         return (
             <div className="audio-clip-bar">
-                {/*<audio id="player" src={this.props.audioClipSource} controls/>*/}
-                <PlayAudio url={this.props.audioClipSource} />
+                <div className="audio-clip-bar__play-icon">
+                    <PlayAudio
+                        url={this.props.audioClipSource}
+                        colorScale={colorScale}
+                    />
+                </div>
                 <div className="audio-clip-bar__clip-title">
                     <h6>{this.props.clipTitle}</h6>
                 </div>
@@ -20,33 +28,6 @@ export class AudioClipBar extends Component {
         );
     }
 }
-
-// export class AudioClipBar extends Component {
-//     render() {
-//         return (
-//             <div className="audio-clip-bar">
-//                 <div
-//                     className="audio-clip-bar__play-icon"
-//                     onClick={this.props.onPlayIconClick}
-//                 >
-//                     {this.props.audioIsPlaying ? (
-//                         <i className="fas fa-volume-up"></i>
-//                     ) : (
-//                         <i className="far fa-play-circle"></i>
-//                     )}
-//                 </div>
-//                 <div className="audio-clip-bar__clip-title">
-//                     <h6>{this.props.clipTitle}</h6>
-//                 </div>
-//                 <div
-//                     className="audio-clip-bar__clip-tags"
-//                 >
-//                     {this.props.children}
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
 
 export class AudioClipBarTag extends Component {
     render() {

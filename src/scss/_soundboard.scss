@@ -1,63 +1,39 @@
 .soundboard-wrapper {
-  width: 1440px;
-  height: 100vh;
-  margin: 0 auto;
+  width: 100%;
 
   @media (max-width: 1440px) {
     width: 100vw;
   }
 
   .soundboard {
-    @include absolute-center(both);
-    //@include flexbox(row, center, center);
-    height: 600px;
-    overflow: hidden;
-    display: none;
-    
-    &__logo {
-      width: 1000px;
-      height: 100%;
-      background-image: url("../img/tl-logo.png");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-
-      @media (max-width: 1440px) {
-        display: none;
-      }
-    }
-    .soundboard-teachers {
-      width: 440px;
-      height: 100%;
-
+    @include flexbox(row, center, center);
+    flex-wrap: wrap;
+    min-height: 400px;
+    padding: 50px 10px;
       @media (max-width: $LESS_THAN_SM) {
-        width: 95vw;
         margin: 0 auto;
+        padding: 10px;
       }
 
       * {
-        display: inline-block;
-        height: calc(50% - 5px);
-        width: calc(50% - 10px);
+        flex: 0 0 calc(25% - 10px);
+        margin: 5px;
+        min-height: 400px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        margin-left: 10px;
+        box-shadow: 0 16px 24px 2px rgba(0,0,0,0.03), 0 6px 30px 5px rgba(0,0,0,0.02), 0 8px 10px 0 rgba(0,0,0,0.04);
+
+        @media (max-width: $LESS_THAN_MD) {
+          flex: 0 0 calc(50% - 10px);
+        }
 
         @media (max-width: $LESS_THAN_SM) {
-          margin-left: 0px;
-
-          &:nth-child(even) {
-            margin-left: 20px;
-          }
+          min-height: 200px;
         }
 
-        &:nth-child(-n+2) {
-          margin-bottom: 5px;
-        }
-
-        &:nth-child(n+3) {
-          margin-top: 5px;
+        &:hover {
+          opacity: .75;
         }
       }
 
@@ -76,6 +52,5 @@
       &__sam-weatherman {
         background-image: url("../img/sam-weatherman.png");
       }
-    }
   }
 }

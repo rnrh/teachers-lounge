@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "dc9b7f5c2e154f8efc5c",
-    "url": "/teachers-lounge/static/css/main.91bac6fe.chunk.css"
+    "revision": "9d3ed8f4af11e62f133a",
+    "url": "/teachers-lounge/static/css/main.317b4edc.chunk.css"
   },
   {
-    "revision": "dc9b7f5c2e154f8efc5c",
-    "url": "/teachers-lounge/static/js/main.dc9b7f5c.chunk.js"
+    "revision": "9d3ed8f4af11e62f133a",
+    "url": "/teachers-lounge/static/js/main.9d3ed8f4.chunk.js"
   },
   {
-    "revision": "1a596ca731a12bb19d37",
-    "url": "/teachers-lounge/static/js/1.1a596ca7.chunk.js"
+    "revision": "2e00406220e4f5e3f5f3",
+    "url": "/teachers-lounge/static/js/1.2e004062.chunk.js"
   },
   {
     "revision": "0a8565018e4275bfefcc",
@@ -40,19 +40,15 @@ self.__precacheManifest = [
     "url": "/teachers-lounge/static/media/todd-padre.4c4cc3b0.png"
   },
   {
-    "revision": "3672caa586728f2687de2cdfa3d5b0b8",
-    "url": "/teachers-lounge/static/media/bill-cravey.3672caa5.png"
-  },
-  {
     "revision": "178fe1b77d09797dd3223fa35ff0120b",
     "url": "/teachers-lounge/static/media/howard-levis.178fe1b7.png"
   },
   {
-    "revision": "b9b94855ef42911ef499e360c3db83d3",
-    "url": "/teachers-lounge/static/media/tl-logo.b9b94855.png"
+    "revision": "3672caa586728f2687de2cdfa3d5b0b8",
+    "url": "/teachers-lounge/static/media/bill-cravey.3672caa5.png"
   },
   {
-    "revision": "55d5035cdf6a29f2f6970d12cc648441",
+    "revision": "19b4207aa9a5e361d04bb65968b48a17",
     "url": "/teachers-lounge/index.html"
   }
 ];

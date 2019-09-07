@@ -1,27 +1,49 @@
 .audio-clip-bar {
   @include flexbox(row, space-between, center);
-  height: 75px;
+  min-height: 75px;
   padding: 0 25px;
   border-bottom: 1px solid #eeeeee;
 
-  audio {
-    filter: sepia(100%) saturate(0) contrast(100%) invert(0%) brightness(1);
-    -webkit-filter: sepia(100%) saturate(0) contrast(100%) invert(0%) brightness(1);
+  @media (max-width: $LESS_THAN_MD) {
+    display: block;
   }
 
   &__play-icon {
-    flex: 0 35px;
+    flex: 0;
+
+    svg {
+      width: 35px;
+    }
+
+    @media (max-width: $LESS_THAN_MD) {
+      display: table-cell;
+      vertical-align: middle;
+    }
   }
   &__clip-title {
     flex: 1;
     padding-left: 50px;
+
+    @media (max-width: $LESS_THAN_MD) {
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 25px;
+    }
   }
   &__clip-tags {
     flex: 2;
     text-align: right;
+
+    @media (max-width: $LESS_THAN_MD) {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
     p {
+      font-size: 0.567em;
       cursor: pointer;
-      font-size: 12px;
       display: inline;
       margin-left: 10px;
       background-color: #eeeeee;
@@ -29,6 +51,10 @@
       border-radius: 10px;
       color: #a4a4a4;
       white-space: nowrap;
+
+      @media (max-width: $LESS_THAN_MD) {
+        margin: 0 10px 0 0;
+      }
 
       &:hover {
         color: #000000;
@@ -43,7 +69,14 @@
   width: 300px;
   height: 50px;
   @include flexbox(row, space-between, center);
-  margin: 0 auto;
+  margin: 0 auto 25px auto;
+
+  @media (max-width: $LESS_THAN_MD) {
+    text-align: center;
+    margin: 25px auto;
+    width: 275px;
+
+  }
 
   i {
     color: #a4a4a4;

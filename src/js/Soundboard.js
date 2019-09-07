@@ -14,7 +14,20 @@ class Soundboard extends Component {
             searchableClipAudio: null,
             audioClipSearch: '',
             tagText: '',
+            infoModal: true,
         };
+    }
+
+    handleModalVisibility = () => {
+        if (this.state.infoModal) {
+            this.setState({
+                infoModal: false,
+            })
+        } else {
+            this.setState({
+                infoModal: true,
+            })
+        }
     }
 
     handleTeacherAudio = (teacherIndex, teacherArray) => {
@@ -22,20 +35,6 @@ class Soundboard extends Component {
         var currentAudio = teacherArray[currentIndex];
         var audio = new Audio(currentAudio);
         return audio.play();
-    };
-
-    getSearchedAudioUrl = (clipUrl) => {
-        this.setState({
-            searchableClipAudio: clipUrl
-        }, () => {
-            var audio = new Audio(this.state.searchableClipAudio);
-            audio.onended = () => {
-                this.setState({
-                    searchableClipAudio: null,
-                })
-            };
-            return audio.play();
-        })
     };
 
     updateAudioClipSearch = (event) => {
@@ -80,11 +79,9 @@ class Soundboard extends Component {
             });
             return (
                 <AudioClipBar
-                    // onPlayIconClick={() => this.getSearchedAudioUrl(audioClip.clipUrl)}
                     audioClipSource={audioClip.clipUrl}
                     onTagClick={() => this.onTagClick}
                     clipTitle={audioClip.clipLabel}
-                    audioIsPlaying={audioClip.clipUrl == this.state.searchableClipAudio ? true : false}
                     key={i}
                 >
                     {renderAudioClipTags}
@@ -92,59 +89,87 @@ class Soundboard extends Component {
             )
         });
         return (
-            <div className="soundboard-wrapper">
-                <SearchBar
-                    audioClipSearchValue={this.state.audioClipSearch}
-                    onSearchInputChange={this.updateAudioClipSearch.bind(this)}
-                    hasSearchValue={this.state.audioClipSearch}
-                    clearSearch={this.clearSearch}
-                />
-                {renderAudioClipBars}
-                <div className="soundboard">
-                    <div className="soundboard__logo"/>
-                    {/*<div className="soundboard-teachers">*/}
-                    {/*<div*/}
-                    {/*onClick={() => this.handleTeacherAudio(*/}
-                    {/*this.state.billCraveyIndex,*/}
-                    {/*Constants.billCraveyClipArray,*/}
-                    {/*this.setState({*/}
-                    {/*billCraveyIndex: this.state.billCraveyIndex + 1*/}
-                    {/*}),*/}
-                    {/*)}*/}
-                    {/*className="soundboard-teachers__bill-cravey"*/}
-                    {/*/>*/}
-                    {/*<div*/}
-                    {/*onClick={() => this.handleTeacherAudio(*/}
-                    {/*this.state.howardLevisIndex,*/}
-                    {/*Constants.howardLevisClipArray,*/}
-                    {/*this.setState({*/}
-                    {/*howardLevisIndex: this.state.howardLevisIndex + 1*/}
-                    {/*}),*/}
-                    {/*)}*/}
-                    {/*className="soundboard-teachers__howard-levis"*/}
-                    {/*/>*/}
-                    {/*<div*/}
-                    {/*onClick={() => this.handleTeacherAudio(*/}
-                    {/*this.state.toddPadreIndex,*/}
-                    {/*Constants.toddPadreClipArray,*/}
-                    {/*this.setState({*/}
-                    {/*toddPadreIndex: this.state.toddPadreIndex + 1*/}
-                    {/*}),*/}
-                    {/*)}*/}
-                    {/*className="soundboard-teachers__todd-padre"*/}
-                    {/*/>*/}
-                    {/*<div*/}
-                    {/*onClick={() => this.handleTeacherAudio(*/}
-                    {/*this.state.samWeathermanIndex,*/}
-                    {/*Constants.samWeathermanClipArray,*/}
-                    {/*this.setState({*/}
-                    {/*samWeathermanIndex: this.state.samWeathermanIndex + 1*/}
-                    {/*}),*/}
-                    {/*)}*/}
-                    {/*className="soundboard-teachers__sam-weatherman"*/}
-                    {/*/>*/}
-                    {/*</div>*/}
+            <div className="app">
+                <div
+                    onClick={this.handleModalVisibility}
+                    className="info-icon"
+                >
+                    {this.state.infoModal ? (
+                        <i className="fas fa-times"></i>
+                    ) : (
+                        <i className="fas fa-info"></i>
+                    )}
                 </div>
+                {this.state.infoModal &&
+                <div className="info-modal">
+                    <div className="info-modal__inner">
+                        <h5>Teacher Pictures</h5>
+                        <p>Click on a teacher to play a clip featuring them. A new clip loads when the old one finishes
+                            so you can loop through for endless fun.</p>
+                        &nbsp;
+                        <h5>Clip List</h5>
+                        <p>Search by clip title, or tag. You can click on a tag to show every clip with the same tag.
+                            Know the timestamp for a clip or want to submit a clip? <a href="mailto:rnrhdev@gmail.com">Email
+                                me.</a></p>
+                    </div>
+                </div>
+                }
+                <div className="soundboard-wrapper">
+                    <div className="soundboard">
+                        <div
+                            onClick={() => this.handleTeacherAudio(
+                                this.state.billCraveyIndex,
+                                Constants.billCraveyClipArray,
+                                this.setState({
+                                    billCraveyIndex: this.state.billCraveyIndex + 1
+                                }),
+                            )}
+                            className="soundboard__bill-cravey"
+                        />
+                        <div
+                            onClick={() => this.handleTeacherAudio(
+                                this.state.howardLevisIndex,
+                                Constants.howardLevisClipArray,
+                                this.setState({
+                                    howardLevisIndex: this.state.howardLevisIndex + 1
+                                }),
+                            )}
+                            className="soundboard__howard-levis"
+                        />
+                        <div
+                            onClick={() => this.handleTeacherAudio(
+                                this.state.toddPadreIndex,
+                                Constants.toddPadreClipArray,
+                                this.setState({
+                                    toddPadreIndex: this.state.toddPadreIndex + 1
+                                }),
+                            )}
+                            className="soundboard__todd-padre"
+                        />
+                        <div
+                            onClick={() => this.handleTeacherAudio(
+                                this.state.samWeathermanIndex,
+                                Constants.samWeathermanClipArray,
+                                this.setState({
+                                    samWeathermanIndex: this.state.samWeathermanIndex + 1
+                                }),
+                            )}
+                            className="soundboard__sam-weatherman"
+                        />
+                    </div>
+                    <SearchBar
+                        audioClipSearchValue={this.state.audioClipSearch}
+                        onSearchInputChange={this.updateAudioClipSearch.bind(this)}
+                        hasSearchValue={this.state.audioClipSearch}
+                        clearSearch={this.clearSearch}
+                    />
+                    {renderAudioClipBars}
+                </div>
+                <footer className="footer">
+                    <a href="mailto:rnrhdev@gmail.com">
+                        <h6>made with <i className="fas fa-heart"></i> by rnrh</h6>
+                    </a>
+                </footer>
             </div>
         );
     }

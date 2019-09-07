@@ -1,0 +1,78 @@
+.app {
+  max-width: 1440px;
+  margin: 0 auto 100px auto;
+
+  .info-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.25);
+    z-index: 998;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    &__inner {
+      width: 50%;
+      padding: 50px;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 16px 24px 2px rgba(0,0,0,0.03), 0 6px 30px 5px rgba(0,0,0,0.02), 0 8px 10px 0 rgba(0,0,0,0.04);
+      @include absolute-center(both);
+
+      @media (max-width: $LESS_THAN_SM) {
+        width: 75%;
+        padding: 25px;
+      }
+    }
+  }
+  .info-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.03), 0 6px 30px 5px rgba(0,0,0,0.02), 0 8px 10px 0 rgba(0,0,0,0.04);
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    z-index: 999;
+
+    @media (max-width: $LESS_THAN_SM) {
+      width: 35px;
+      height: 35px;
+    }
+
+    &:hover {
+      i {
+        color: black;
+      }
+    }
+    i {
+      @include absolute-center(both);
+      font-size: 16px;
+      color: #a4a4a4;
+      transition: .2s all;
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.03), 0 6px 30px 5px rgba(0,0,0,0.02), 0 8px 10px 0 rgba(0,0,0,0.04);
+    width: 100vw;
+    h6 {
+      margin: 0 auto;
+      text-align: center;
+      line-height: 50px;
+      font-weight: 400 !important;
+      font-size: 14px;
+    }
+    a {
+      color: black;
+    }
+  }
+}
