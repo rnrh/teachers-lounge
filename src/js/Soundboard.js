@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import Constants from '../js/Constants';
 import {AudioClipBar, SearchBar, AudioClipBarTag} from '../js/Search';
+import {Media, Player, controls} from 'react-media-player';
+
+const {
+    PlayPause,
+    CurrentTime,
+    SeekBar,
+    Duration,
+
+} = controls;
 
 class Soundboard extends Component {
     constructor(props) {
@@ -11,10 +20,11 @@ class Soundboard extends Component {
             howardLevisIndex: 0,
             toddPadreIndex: 0,
             samWeathermanIndex: 0,
-            searchableClipAudio: null,
+            audioClipUrl: null,
+            audioClipTitle: null,
             audioClipSearch: '',
             tagText: '',
-            infoModal: true,
+            infoModal: false,
         };
     }
 
@@ -56,6 +66,13 @@ class Soundboard extends Component {
         })
     };
 
+    handleOnAddClipAudio = (audioClipUrl, audioClipTitle) => {
+        this.setState({
+            audioClipUrl: audioClipUrl,
+            audioClipTitle: audioClipTitle,
+        })
+    }
+
     render() {
         let filteredAudioClips = Constants.searchableClips.filter(
             (audioClip) => {
@@ -79,7 +96,10 @@ class Soundboard extends Component {
             });
             return (
                 <AudioClipBar
-                    audioClipSource={audioClip.clipUrl}
+                    isPlaying={audioClip.clipUrl == this.state.audioClipUrl}
+                    audioClipUrl={audioClip.clipUrl}
+                    audioClipTitle={audioClip.clipLabel}
+                    handleOnAddClipAudio={this.handleOnAddClipAudio}
                     onTagClick={() => this.onTagClick}
                     clipTitle={audioClip.clipLabel}
                     season={audioClip.season}
@@ -113,7 +133,11 @@ class Soundboard extends Component {
                         <h5>Clip List</h5>
                         <p>Search by clip title, or tag. You can click on a tag to show every clip with the same tag.
                             Know the timestamp for a clip or want to submit a clip? <a href="mailto:rnrhdev@gmail.com">Email
-                                me.</a></p>
+                                me.</a>
+                        </p>
+                        <a href="mailto:rnrhdev@gmail.com">
+                            <h6>made with <i className="fas fa-heart"></i> by rnrh</h6>
+                        </a>
                     </div>
                 </div>
                 }
@@ -172,11 +196,28 @@ class Soundboard extends Component {
                         </div>
                     </div>
                 </div>
+                {this.state.audioClipTitle &&
                 <footer className="footer">
-                    <a href="mailto:rnrhdev@gmail.com">
-                        <h6>made with <i className="fas fa-heart"></i> by rnrh</h6>
-                    </a>
+                    <h6>{this.state.audioClipTitle}</h6>
+                    <Media>
+                        <div className="media">
+                            <div className="media-player">
+                                <Player
+                                    autoPlay
+                                    vendor={'audio'}
+                                    src={this.state.audioClipUrl}
+                                />
+                            </div>
+                            <div className="media-controls">
+                                <PlayPause/>
+                                <CurrentTime/>
+                                <SeekBar/>
+                                <Duration/>
+                            </div>
+                        </div>
+                    </Media>
                 </footer>
+                }
             </div>
         );
     }
@@ -194,3 +235,4 @@ class Teacher extends Component {
         );
     }
 }
+

@@ -1,32 +1,31 @@
 import React, {Component} from 'react';
-import PlayAudio from 'react-simple-audio-player';
-import chroma from "chroma-js"
 
 export class AudioClipBar extends Component {
     render() {
-        const colorScale = chroma.scale([
-            '#ffffff',
-            '#000000',
-        ]).mode('lch').colors(2);
+        var audioClipUrl = this.props.audioClipUrl;
+        var audioClipTitle = this.props.audioClipTitle;
         return (
             <div className="audio-clip-bar">
-                <div className="audio-clip-bar__play-icon">
-                    <PlayAudio
-                        url={this.props.audioClipSource}
-                        colorScale={colorScale}
-                    />
+                <div
+                    className="audio-clip-bar__play-icon"
+                    onClick={() => this.props.handleOnAddClipAudio(audioClipUrl, audioClipTitle)}
+                >
+                    {this.props.isPlaying ? (
+                        <i className="fas fa-volume-up"></i>
+                    ) : (
+                        <i className="fas fa-play"></i>
+                    )}
                 </div>
                 <div className="audio-clip-bar__clip-title">
                     <h6>{this.props.clipTitle}</h6>
                     <p className="audio-clip-bar__clip-title-season-episode">
                         {this.props.season && this.props.episode ? (
-                            this.props.season  + ' | ' + this.props.episode
-                            ) : (
+                            this.props.season + ' | ' + this.props.episode
+                        ) : (
                             null
-                            )
-                        }
+                        )}
                         {this.props.timestamp &&
-                            ', ' + this.props.timestamp
+                        ', ' + this.props.timestamp
                         }
                     </p>
                 </div>

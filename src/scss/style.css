@@ -64,7 +64,7 @@ a {
     .audio-clip-bar {
       display: block; } }
   .audio-clip-bar__play-icon {
-    flex: 0; }
+    flex: 0 1 30px; }
     .audio-clip-bar__play-icon svg {
       width: 40px; }
     @media (max-width: 767.98px) {
@@ -214,7 +214,7 @@ p {
 
 .app {
   max-width: 1440px;
-  margin: 0 auto 100px auto; }
+  margin: 0 auto 150px auto; }
   .app .info-modal {
     width: 100vw;
     height: 100vh;
@@ -240,6 +240,13 @@ p {
         .app .info-modal__inner {
           width: 75%;
           padding: 25px; } }
+      .app .info-modal__inner h6 {
+        display: inline;
+        line-height: 50px;
+        font-weight: 400 !important;
+        font-size: 14px; }
+      .app .info-modal__inner a {
+        color: black; }
   .app .info-icon {
     width: 50px;
     height: 50px;
@@ -271,19 +278,95 @@ p {
       transition: .2s all; }
   .app .footer {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 50px;
+    bottom: 15px;
+    left: 15px;
+    min-height: 60px;
     background-color: white;
     box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.03), 0 6px 30px 5px rgba(0, 0, 0, 0.02), 0 8px 10px 0 rgba(0, 0, 0, 0.04);
-    width: 100vw;
-    text-align: center; }
+    border-radius: 10px;
+    width: calc(100vw - 30px);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    /* Special styling for WebKit/Blink */
+    /* All the same stuff for Firefox */
+    /* All the same stuff for IE */ }
+    .app .footer .media-controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0 15px; }
+    .app .footer button {
+      border: none;
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.03), 0 6px 30px 5px rgba(0, 0, 0, 0.02), 0 8px 10px 0 rgba(0, 0, 0, 0.04);
+      padding: 10px;
+      border-radius: 5px;
+      min-width: 60px;
+      margin-right: 25px;
+      font-weight: 700; }
+    .app .footer time {
+      font-size: 0.7em; }
+    .app .footer input[type=range] {
+      -webkit-appearance: none;
+      /* Hides the slider so that custom slider can be made */
+      width: 100%;
+      /* Specific width is required for Firefox. */
+      background: transparent;
+      /* Otherwise white in Chrome */
+      background-color: black;
+      height: 5px;
+      margin: 0 10px; }
+    .app .footer input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; }
+    .app .footer input[type=range]:focus {
+      outline: none;
+      /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */ }
+    .app .footer input[type=range]::-ms-track {
+      width: 100%;
+      cursor: pointer;
+      /* Hides the slider so custom styles can be added */
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+      background-color: black;
+      height: 5px; }
+    .app .footer input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid #000000;
+      height: 15px;
+      width: 15px;
+      border-radius: 100%;
+      background: #ffffff;
+      cursor: pointer;
+      margin-top: 0;
+      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.03), 0 6px 30px 5px rgba(0, 0, 0, 0.02), 0 8px 10px 0 rgba(0, 0, 0, 0.04); }
+    .app .footer input[type=range]::-moz-range-thumb {
+      border: 1px solid #000000;
+      height: 15px;
+      width: 15px;
+      border-radius: 100%;
+      background: #ffffff;
+      cursor: pointer;
+      margin-top: 0;
+      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.03), 0 6px 30px 5px rgba(0, 0, 0, 0.02), 0 8px 10px 0 rgba(0, 0, 0, 0.04); }
+    .app .footer input[type=range]::-ms-thumb {
+      border: 1px solid #000000;
+      height: 15px;
+      width: 15px;
+      border-radius: 100%;
+      background: #ffffff;
+      cursor: pointer;
+      margin-top: 0;
+      /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.03), 0 6px 30px 5px rgba(0, 0, 0, 0.02), 0 8px 10px 0 rgba(0, 0, 0, 0.04); }
     .app .footer h6 {
-      display: inline;
-      line-height: 50px;
-      font-weight: 400 !important;
-      font-size: 14px; }
-    .app .footer a {
-      color: black; }
+      padding-bottom: 5px;
+      font-size: 0.65em; }
 
 /*# sourceMappingURL=style.css.map */
