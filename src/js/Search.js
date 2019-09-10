@@ -18,6 +18,17 @@ export class AudioClipBar extends Component {
                 </div>
                 <div className="audio-clip-bar__clip-title">
                     <h6>{this.props.clipTitle}</h6>
+                    <p className="audio-clip-bar__clip-title-season-episode">
+                        {this.props.season && this.props.episode ? (
+                            this.props.season  + ' | ' + this.props.episode
+                            ) : (
+                            null
+                            )
+                        }
+                        {this.props.timestamp &&
+                            ', ' + this.props.timestamp
+                        }
+                    </p>
                 </div>
                 <div
                     className="audio-clip-bar__clip-tags"
@@ -43,7 +54,7 @@ export class AudioClipBarTag extends Component {
 export class SearchBar extends Component {
     render() {
         return (
-            <div className="search">
+            <div className="search-clip-wrapper__search">
                 <input
                     className="search-input"
                     placeholder="Search"

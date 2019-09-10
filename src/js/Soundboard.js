@@ -43,16 +43,16 @@ class Soundboard extends Component {
         })
     };
 
+    clearSearch = () => {
+        this.setState({
+            audioClipSearch: '',
+        })
+    };
+
     handleTagClick = (tagText) => {
         this.setState({
             tagText: tagText,
             audioClipSearch: tagText,
-        })
-    };
-
-    clearSearch = () => {
-        this.setState({
-            audioClipSearch: '',
         })
     };
 
@@ -82,11 +82,14 @@ class Soundboard extends Component {
                     audioClipSource={audioClip.clipUrl}
                     onTagClick={() => this.onTagClick}
                     clipTitle={audioClip.clipLabel}
+                    season={audioClip.season}
+                    episode={audioClip.episode}
+                    timestamp={audioClip.timestamp}
                     key={i}
                 >
                     {renderAudioClipTags}
                 </AudioClipBar>
-            )
+            );
         });
         return (
             <div className="app">
@@ -116,54 +119,58 @@ class Soundboard extends Component {
                 }
                 <div className="soundboard-wrapper">
                     <div className="soundboard">
-                        <div
-                            onClick={() => this.handleTeacherAudio(
+                        <Teacher
+                            handleTeacherAudio={() => this.handleTeacherAudio(
                                 this.state.billCraveyIndex,
                                 Constants.billCraveyClipArray,
                                 this.setState({
                                     billCraveyIndex: this.state.billCraveyIndex + 1
                                 }),
                             )}
-                            className="soundboard__bill-cravey"
+                            teacherClassName={"soundboard__bill-cravey"}
                         />
-                        <div
-                            onClick={() => this.handleTeacherAudio(
+                        <Teacher
+                            handleTeacherAudio={() => this.handleTeacherAudio(
                                 this.state.howardLevisIndex,
                                 Constants.howardLevisClipArray,
                                 this.setState({
                                     howardLevisIndex: this.state.howardLevisIndex + 1
                                 }),
                             )}
-                            className="soundboard__howard-levis"
+                            teacherClassName={"soundboard__howard-levis"}
                         />
-                        <div
-                            onClick={() => this.handleTeacherAudio(
+                        <Teacher
+                            handleTeacherAudio={() => this.handleTeacherAudio(
                                 this.state.toddPadreIndex,
                                 Constants.toddPadreClipArray,
                                 this.setState({
                                     toddPadreIndex: this.state.toddPadreIndex + 1
                                 }),
                             )}
-                            className="soundboard__todd-padre"
+                            teacherClassName={"soundboard__todd-padre"}
                         />
-                        <div
-                            onClick={() => this.handleTeacherAudio(
+                        <Teacher
+                            handleTeacherAudio={() => this.handleTeacherAudio(
                                 this.state.samWeathermanIndex,
                                 Constants.samWeathermanClipArray,
                                 this.setState({
                                     samWeathermanIndex: this.state.samWeathermanIndex + 1
                                 }),
                             )}
-                            className="soundboard__sam-weatherman"
+                            teacherClassName={"soundboard__sam-weatherman"}
                         />
                     </div>
-                    <SearchBar
-                        audioClipSearchValue={this.state.audioClipSearch}
-                        onSearchInputChange={this.updateAudioClipSearch.bind(this)}
-                        hasSearchValue={this.state.audioClipSearch}
-                        clearSearch={this.clearSearch}
-                    />
-                    {renderAudioClipBars}
+                    <div className="search-clip-wrapper">
+                        <SearchBar
+                            audioClipSearchValue={this.state.audioClipSearch}
+                            onSearchInputChange={this.updateAudioClipSearch.bind(this)}
+                            hasSearchValue={this.state.audioClipSearch}
+                            clearSearch={this.clearSearch}
+                        />
+                        <div className="search-clip-wrapper__clip-list">
+                            {renderAudioClipBars}
+                        </div>
+                    </div>
                 </div>
                 <footer className="footer">
                     <a href="mailto:rnrhdev@gmail.com">
@@ -176,3 +183,14 @@ class Soundboard extends Component {
 }
 
 export default Soundboard;
+
+class Teacher extends Component {
+    render() {
+        return (
+            <div
+                onClick={this.props.handleTeacherAudio}
+                className={this.props.teacherClassName}
+            />
+        );
+    }
+}
